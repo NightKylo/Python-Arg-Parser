@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: arg-parser
-Version: 2.0.0
+Version: 2.0.2
 Summary: Parse commands from the terminal to simple functions
 Home-page: https://github.com/NightKylo/Python-Arg-Parser
 Author: Marius K. / cracksii
@@ -19,13 +19,13 @@ Description: # Arg-Parser-Python
         ***Integration:***
         
         Try to install this script with ```pip install arg_parser``` and then ```import arg_parser``` at the top of your script.
-        If this doesn't work you can download it from https://github.com/NightKylo/Python-Arg-Parser. After that put it into the same directory as your script. In your script add ```import arg_parser``` or if that doesn't work ```from . import arg_parser``` at the top.
+        If this doesn't work you can download it from https://github.com/NightKylo/Python-Arg-Parser. After that put it into the same directory as your script. In your script add ```from arg_parser import *``` or if that doesn't work ```from . import arg_parser``` at the top.
         Be aware that the better way is to install it via pip.
         
         ***Usage:***
         
-        To use the parser you have to initialize the ```Parser``` class via ```arg_parser.Parser(commands)``` where commands is a dictionary with the structure:
-        ```{ "--command1": [["-required_param1", "-required_param2"], ["-optional_param1"], "description"], "-param1": ["description"] }```. If there are no required or optional params just out in an empty list. For more information about that go to GitHub and look at structure.py.
+        To use the parser you have to initialize the ```Parser``` class via ```arg_parser.Parser(commands)``` (without the module name if you imported with *) where ```commands``` is a register-object created like that:
+        ```reg = arg_parser.Register()```. You can register a command with ```reg + Command("--name", "description", ["-required_param"], ["-optional_param"])``` and a parameter with ```reg + Parameter("-name", "description")```. If there are no required or optional params just leave the list empty.
         
         Now you have to specify the way a command shall be handled. It works like this: ```@parser("--command_name") def handle_command_name(args: dict): do_whatever_you_want()```. In the decorator above the function you have to pass the command eg ```--get``` and the parser will call it when the command is supplied. 
         ```args``` is in this case a dictionary of the given args form the structure ```{ "-optname": "value", "-optname": "value" }```. Be aware that this dictionary does not contain the given command, only the options.

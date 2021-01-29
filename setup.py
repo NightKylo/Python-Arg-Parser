@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup, find_packages
+from setuptools import setup
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
@@ -7,7 +7,7 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 setup(
     name="arg_parser",
-    version="2.0.1",
+    version="2.0.2",
     description="Parse commands from the terminal to simple functions",
     long_description=README,
     long_description_content_type="text/markdown",
