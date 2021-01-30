@@ -1,4 +1,4 @@
-# Arg-Parser-Python
+# Python-Arg-Parser
 This simple script helps to parse the args a script is called with and makes printing command-usages much easier.
 
 ***Why to use it?***
@@ -21,7 +21,7 @@ To use the parser you have to initialize the ```Parser``` class via ```arg_parse
 ```reg = arg_parser.Register()```. You can register a command with ```reg + Command("--name", "description", ["-required_param"], ["-optional_param"])``` and a parameter with ```reg + Parameter("-name", "description")```. If there are no required or optional params just leave the list empty.
 
 Now you have to specify the way a command shall be handled. It works like this: ```@parser("--command_name") def handle_command_name(args: dict): do_whatever_you_want()```. In the decorator above the function you have to pass the command eg ```--get``` and the parser will call it when the command is supplied. 
-```args``` is in this case a dictionary of the given args form the structure ```{ "-optname": "value", "-optname": "value" }```. Be aware that this dictionary does not contain the given command, only the options.
+```args``` is in this case a dictionary of the given args form the structure ```{ "-pararm": "value", "-param": "value" }```. Be aware that this dictionary does not contain the given command, only the options.
 
 If you want to start the handle process manually you can add a ```True``` to the initialization of the parser and a ```parser.handle_commands()``` when you want to handle them. By default, the parser handles the commands when all handler-functions are given.
 
