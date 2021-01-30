@@ -3,7 +3,7 @@ This package helps to parse args from the command line or the terminal to a dict
 
 ***Why to use it?***
 
-When you want to get the args with ```sys.argv``` they have to be in the correct position and if one is missing the script crashes. A script working with ```sys.argv``` often looks like this:
+When you want to get the args with ```sys.argv``` they have to be in the correct position and if one is missing the script crashes. Executing a script working with ```sys.argv``` often looks like this:
 ```py .\script.py get name```.
 
 If you integrate this script the args are registered like this and much easier to read out.
