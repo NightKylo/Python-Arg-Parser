@@ -11,7 +11,7 @@ If you integrate this script the args are registered like this and much easier t
 
 ***Integration:***
 
-Try to install this script with ```pip install arg_parser``` and then ```import arg_parser``` at the top of your script.
+Try to install this script with ```pip install arg_parser``` and then ```from arg_parser import *``` at the top of your script.
 If this doesn't work you can download it from https://github.com/NightKylo/Python-Arg-Parser. After that put it into the same directory as your script. In your script add ```from arg_parser import *``` or if that doesn't work ```from . import arg_parser``` at the top.
 Be aware that the better way is to install it via pip.
 
