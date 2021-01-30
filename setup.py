@@ -8,7 +8,8 @@ README = (HERE / "README.md").read_text()
 setup(
     name="arg_parser",
     version="2.0.2",
-    description="A tool for parsing arguments from the command line to a dictionary and for executing predefined on_command funnctions.",
+    description="A tool for parsing arguments from the command line to a dictionary and for executing predefined "
+                "on_command functions.",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/NightKylo/Python-Arg-Parser",
