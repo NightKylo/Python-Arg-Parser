@@ -7,12 +7,6 @@ class Command:
         if optional_params is None:
             optional_params = []
 
-        # Checks if someone gave an empty list instead of None
-        if len(required_params) == 0:
-            required_params = None
-        if len(optional_params) == 0:
-            optional_params = None
-
         self.name = name
         self.description = description
         self.required_params = required_params

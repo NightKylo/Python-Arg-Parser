@@ -4,8 +4,8 @@ README.md
 setup.py
 arg_parser/__init__.py
 arg_parser/__main__.py
-arg_parser/arg_parser.py
 arg_parser/args.py
+arg_parser/parser.py
 arg_parser.egg-info/PKG-INFO
 arg_parser.egg-info/SOURCES.txt
 arg_parser.egg-info/dependency_links.txt

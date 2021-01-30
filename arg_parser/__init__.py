@@ -9,7 +9,7 @@ Licensed under Apache
 © Copyright 2021 Marius K / cracksii
 """
 
-from .arg_parser import Parser
+from .parser import Parser
 from .args import *
 
-__version__ = "2.0.5"
+__version__ = "1.0.0"

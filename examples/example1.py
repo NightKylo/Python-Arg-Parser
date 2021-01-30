@@ -22,5 +22,5 @@ def find_handler(opts: dict):
 
 
 # This is called here because we didn't specify a handler for --command so it wouldn't start automatically.
-# If we hould have a handler for --command it would start immediately after the declaration.
+# If we would have a handler for --command it would start immediately after the declaration.
 parser.handle_commands()
