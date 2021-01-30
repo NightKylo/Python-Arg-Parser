@@ -77,6 +77,8 @@ class Parser:
                             if arg > arg_index + 1:
                                 if sys.argv[arg][0] != "-":
                                     args[sys.argv[arg_index]] += " " + sys.argv[arg]
+                                else:
+                                    break
                     except IndexError:
                         self.print_usage()
                 elif not got_cmd:

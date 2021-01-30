@@ -1,5 +1,5 @@
-# Python-Arg-Parser
-This simple script helps to parse the args a script is called with and makes printing command-usages much easier.
+# Arg-Parser-Python
+This package helps to parse args from the command line or the terminal to a dictionary and calls registered functions when the individual command is given. This makes dealing with args much easier, more efficient and better ordered.
 
 ***Why to use it?***
 
@@ -18,11 +18,15 @@ Be aware that the better way is to install it via pip.
 ***Usage:***
 
 To use the parser you have to initialize the ```Parser``` class via ```arg_parser.Parser(commands)``` (without the module name if you imported with *) where ```commands``` is a register-object created like that:
-```reg = arg_parser.Register()```. You can register a command with ```reg + Command("--name", "description", ["-required_param"], ["-optional_param"])``` and a parameter with ```reg + Parameter("-name", "description")```. If there are no required or optional params just leave the list empty.
+```reg = arg_parser.Register()```. You can register a command with ```reg + Command("--name", "description", ["-required_param"], ["-optional_param"])``` and a parameter with ```reg + Parameter("-name", "description")```. If you want you can use ```reg.add(Parameter("-name", "description"))``` instead. If there are no required or optional params remove the lists or put ```None```.
 
 Now you have to specify the way a command shall be handled. It works like this: ```@parser("--command_name") def handle_command_name(args: dict): do_whatever_you_want()```. In the decorator above the function you have to pass the command eg ```--get``` and the parser will call it when the command is supplied. 
-```args``` is in this case a dictionary of the given args form the structure ```{ "-pararm": "value", "-param": "value" }```. Be aware that this dictionary does not contain the given command, only the options.
+```args``` is in this case a dictionary of the given args form the structure ```{ "-optname": "value", "-optname": "value" }```. Be aware that this dictionary does not contain the given command, only the options.
 
 If you want to start the handle process manually you can add a ```True``` to the initialization of the parser and a ```parser.handle_commands()``` when you want to handle them. By default, the parser handles the commands when all handler-functions are given.
 
 Look at the example files at https://github.com/NightKylo/Python-Arg-Parser for more detailed information.
+
+***How does it work***
+
+If you want to know, how this package works go to https://github.com/NightKylo/Python-Arg-Parser/tree/main/arg_parser and look at the arg_parser.py file.

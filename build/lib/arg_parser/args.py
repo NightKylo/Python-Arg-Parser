@@ -5,6 +5,12 @@ class Command:
         if optional_params is None:
             optional_params = []
 
+        # Checks if someone gave an empty list instead of None
+        if len(required_params) == 0:
+            required_params = None
+        if len(optional_params) == 0:
+            optional_params = None
+
         self.name = name
         self.description = description
         self.required_params = required_params
@@ -66,13 +72,13 @@ class Register:
             self.all.remove(other)
             self.names.remove(other.name)
         else:
-            raise Exception("Other has a not compatible type")
+            raise Exception(f"Other has a not compatible type {type(other)}")
 
     def __repr__(self):
         return ", ".join(self.names)
 
     def __len__(self):
-        return len(self.commands) + len(self.parameters)
+        return len(self.all)
 
     def __getitem__(self, name):
         for i in self.all:
@@ -90,3 +96,29 @@ class Register:
             for i in other.parameters:
                 self.parameters.append(i)
                 self.all.append(i)
+        else:
+            raise TypeError(f"Type of other is not Register its {type(other)}")
+
+    def add(self, other):
+        if type(other) is Command:
+            self.commands.append(other)
+            self.all.append(other)
+            self.names.append(other.name)
+        elif type(other) is Parameter:
+            self.parameters.append(other)
+            self.all.append(other)
+            self.names.append(other.name)
+        else:
+            raise Exception(f"Other has a not compatible type {type(other)}")
+
+    def remove(self, other):
+        if type(other) is Command:
+            self.commands.remove(other)
+            self.all.remove(other)
+            self.names.remove(other.name)
+        elif type(other) is Parameter:
+            self.parameters.remove(other)
+            self.all.remove(other)
+            self.names.remove(other.name)
+        else:
+            raise Exception(f"Other has a not compatible type {type(other)}")
