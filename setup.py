@@ -1,3 +1,5 @@
+# setup.py
+
 import pathlib
 from setuptools import setup
 
@@ -7,7 +9,7 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 setup(
     name="arg_parser",
-    version="2.0.3",
+    version="2.0.4",
     description="A tool for parsing arguments from the command line to a dictionary and for executing predefined "
                 "on_command functions.",
     long_description=README,

@@ -1,6 +1,5 @@
 # __init__.py
 # encoding utf-8
-# MIT license
 
 """
 arg_parser is a tool that gives you easy access
@@ -13,4 +12,4 @@ Licensed under Apache
 from .arg_parser import Parser
 from .args import *
 
-__version__ = "2.0.3"
+__version__ = "2.0.4"
