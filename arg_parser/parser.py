@@ -97,8 +97,6 @@ class Parser:
                     cmd = sys.argv[arg_index]
         if not self.reg.names.__contains__(cmd) and cmd is not None:
             raise Exception(f"Command '{cmd}' was not registered, type '--help' for help")
-        elif cmd is None:
-            self.print_usage()
         return args
 
     def handle_commands(self):
