@@ -13,15 +13,24 @@ class Parser:
         self.call_handle_manual = call_handle_manual
         self.args = self.parse_args()
 
-    def __call__(self, cmd_to_handle):
+    def __call__(self, cmd_to_handle1, cmd_to_handle2=None):
         def decorator(func):
-            if self.reg.names.__contains__(cmd_to_handle):
-                self.handlers[cmd_to_handle] = func
+            if self.reg.names.__contains__(cmd_to_handle1):
+                self.handlers[cmd_to_handle1] = func
                 if len(self.handlers) == len(self.reg.commands) - 1:
                     if not self.call_handle_manual:
                         self.handle_commands()
             else:
-                raise Exception(f"Command {cmd_to_handle} was not specified in commands, type '--help' for help")
+                raise Exception(f"Command {cmd_to_handle1} was not specified in commands, type '--help' for help")
+
+            if cmd_to_handle2:
+                if self.reg.names.__contains__(cmd_to_handle2):
+                    self.handlers[cmd_to_handle2] = func
+                    if len(self.handlers) == len(self.reg.commands) - 1:
+                        if not self.call_handle_manual:
+                            self.handle_commands()
+                else:
+                    raise Exception(f"Command {cmd_to_handle1} was not specified in commands, type '--help' for help")
 
         return decorator
 
@@ -86,17 +95,19 @@ class Parser:
                 elif not cmd:
                     args[sys.argv[arg_index]] = ""
                     cmd = sys.argv[arg_index]
-        if not self.reg.names.__contains__(cmd):
+        if not self.reg.names.__contains__(cmd) and cmd is not None:
             raise Exception(f"Command '{cmd}' was not registered, type '--help' for help")
+        elif cmd is None:
+            self.print_usage()
         return args
 
     def handle_commands(self):
         for c in [arg for arg in self.args if self.args[arg] == ""]:
             try:
                 for j in self.reg[c].required_params:
-                    if not self.args.keys().__contains__(j):
+                    if not self.args.__contains__(j):
                         raise Exception(f"Error executing command '{c}'. Required parameter '{j}' is missing, "
-                                        f"type '--help' for help")
+                                        f"type '--help'.")
                 self.args.pop(c)
                 self.handlers[c](self.args)
                 return
