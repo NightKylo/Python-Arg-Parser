@@ -81,7 +81,7 @@ class Parser:
         cmd = None
         for arg_index in range(len(sys.argv)):
             if sys.argv[arg_index][0] == "-":
-                if sys.argv[arg_index][1] != "-":
+                if sys.argv[arg_index][1] != "-" and not self.reg[sys.argv[arg_index]].no_value_param:
                     try:
                         args[sys.argv[arg_index]] = sys.argv[arg_index + 1]
                         for arg in range(len(sys.argv)):
@@ -92,9 +92,11 @@ class Parser:
                                     break
                     except IndexError:
                         self.print_usage()
-                elif not cmd:
+                elif not cmd and sys.argv[arg_index][1] == "-":
                     args[sys.argv[arg_index]] = ""
                     cmd = sys.argv[arg_index]
+                else:
+                    args[sys.argv[arg_index]] = ""
         if not self.reg.names.__contains__(cmd) and cmd is not None:
             raise Exception(f"Command '{cmd}' was not registered, type '--help' for help")
         return args

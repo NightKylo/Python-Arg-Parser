@@ -9,7 +9,7 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 setup(
     name="arg_parser",
-    version="1.0.2",
+    version="1.0.3",
     description="A tool for parsing arguments from the command line to a dictionary and for executing predefined "
                 "on_command functions.",
     long_description=README,
