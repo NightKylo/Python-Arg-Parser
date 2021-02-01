@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: arg-parser
-Version: 1.0.3
+Version: 1.0.4
 Summary: A tool for parsing arguments from the command line to a dictionary and for executing predefined on_command functions.
 Home-page: https://github.com/NightKylo/Python-Arg-Parser
 Author: Marius K. / cracksii

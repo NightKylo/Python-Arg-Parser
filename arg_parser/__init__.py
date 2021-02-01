@@ -12,4 +12,4 @@ Licensed under Apache
 from .parser import Parser
 from .args import *
 
-__version__ = "1.0.3"
+__version__ = "1.0.4"

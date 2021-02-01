@@ -20,9 +20,10 @@ class Command:
 
 
 class Parameter:
-    def __init__(self, name: str, description: str):
+    def __init__(self, name: str, description: str, no_value_param: bool = False):
         self.name = name
         self.description = description
+        self.no_value_param = no_value_param
 
     def __repr__(self):
         return self.name
