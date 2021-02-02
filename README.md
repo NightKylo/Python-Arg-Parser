@@ -1,4 +1,4 @@
-# Arg-Parser-Python
+# Python Arg-Parser
 This package helps to parse args from the command line or the terminal to a dictionary and calls registered functions when the individual command is given. This makes dealing with args much easier, more efficient and better ordered.
 
 ***Why to use it?***
